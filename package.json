@@ -1,0 +1,29 @@
+{
+  "name": "deploy-npm",
+  "version": "1.0.0",
+  "description": "deploy-npm will be install npm module automatically in the run-time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HmHmmHm/deploy-npm.git"
+  },
+  "keywords": [
+    "npm",
+    "module",
+    "update",
+    "updater",
+    "node module automatic updater"
+  ],
+  "author": "hmhmmhm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HmHmmHm/deploy-npm/issues"
+  },
+  "homepage": "https://github.com/HmHmmHm/deploy-npm#readme",
+  "dependencies": {
+    "stack-trace": "0.0.9"
+  }
+}
