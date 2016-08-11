@@ -11,6 +11,7 @@ Based on the list of packages created in package.json
 it will automatically run the command npm install in run-time.
 (Before distribution, the developer must record the module
 list using the npm install <package-name> --save command.)
+```
 
 ## How to use deploy-npm?
 
