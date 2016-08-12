@@ -39,20 +39,28 @@ module.exports = class DeployNPM {
     }
 
     /**
+     * @param {string} event
+     * @param {function} listener
+     */
+    static on(event, listener) {
+        DeployNPM.getEvents().on(event, listener);
+    }
+
+    /**
+     * @param {function} startCallback
+     */
+    static callback(startCallback){
+      DeployNPM.getEvents().on(DeployNPM.ALL_INSTALLED_EVENT, startCallback);
+    }
+
+    /**
      * @description
      * Automatically install the node modules.
      * @param {boolean} isNeedDefaultProcess
      */
     static automatic(isNeedDefaultProcess) {
-        let sourceFolderPath = '';
-        let trace = require('stack-trace').parse(new Error());
-        let pathSplit = trace[1].fileName.split(path.sep);
+        let sourceFolderPath = path.join(process.argv[1], '../');
 
-        if (trace[1].fileName[0] == '/') sourceFolderPath += '/';
-        for (let i = 0; i < pathSplit.length - 1; i++) {
-            sourceFolderPath = path.join(sourceFolderPath, pathSplit[i]);
-            if (sourceFolderPath == 'C:.') sourceFolderPath = 'C:\\';
-        }
         if (isNeedDefaultProcess == true || isNeedDefaultProcess == undefined) {
             DeployNPM.getEvents().on(DeployNPM.INSTALL_START_EVENT,
                 (notInstalledModulesList) => {
@@ -103,12 +111,16 @@ module.exports = class DeployNPM {
             packageVersion = packageVersion.replace(/[&\/\\#,+()$~%;@$^!'":*?<>{}]/g, '');
             let loadTest, loadVersion;
             try {
-                loadTest = require(packageName);
+                loadTest = require(path.join(sourceFolderPath, `node_modules/${packageName}`));
                 loadVersion = require(path.join(sourceFolderPath, `node_modules/${packageName}/package.json`)).version;
                 loadVersion = loadVersion.replace(/[&\/\\#,+()$~%;@$^!'":*?<>{}]/g, '');
                 if (packageVersion != loadVersion) notInstalledModules.push(packageName);
             } catch (e) {
-                if (!loadTest) notInstalledModules.push(packageName);
+                try {
+                    loadTest = require(packageName);
+                } catch (e) {
+                    if (!loadTest) notInstalledModules.push(packageName);
+                }
             }
         }
 
@@ -139,6 +151,7 @@ module.exports = class DeployNPM {
             events.emit(DeployNPM.INSTALL_START_EVENT, notInstalledModules);
             notInstalledModules.forEach(module => {
                 events.emit(DeployNPM.MODULE_INSTALL_START_EVENT, module);
+
                 cp.exec(`npm install ${module}`, (error, body) => {
                     if (error) {
                         events.emit(DeployNPM.MODULE_INSTALL_ERROR_EVENT, error);

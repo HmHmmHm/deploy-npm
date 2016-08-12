@@ -18,7 +18,7 @@ list using the npm install <package-name> --save command.)
 - type command in terminal `npm install deploy-npm --save`
 - and type your main js file highest `require('deploy-npm').automatic();`
 - make the start callback function, and save the variable,
-- and register the event listener, `require('deploy-npm').getEvents().on(deployNpm.ALL_INSTALLED_EVENT, startCallback);`
+- and register the event listener, `require('deploy-npm').callback(startCallback);`
 - If you want to more information, Check out the example code.
 
 ![Showcase](http://i.imgur.com/1UcewPG.gif)

@@ -1,6 +1,6 @@
 {
   "name": "deploy-npm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "deploy-npm will be install npm module automatically in the run-time.",
   "main": "index.js",
   "scripts": {

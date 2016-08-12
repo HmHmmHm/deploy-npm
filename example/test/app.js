@@ -7,4 +7,4 @@ let startCallback = () =>{
   console.log('started!');
 }
 
-deployNpm.getEvents().on(deployNpm.ALL_INSTALLED_EVENT, startCallback);
+deployNpm.callback(startCallback);

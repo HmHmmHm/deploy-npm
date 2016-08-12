@@ -1,0 +1,21 @@
+{
+    "ecmaVersion": 6,
+    "libs": [],
+    "loadEagerly": [
+        "./**/*"
+    ],
+    "dontLoad": [
+        "**/node_modules/**"
+    ],
+    "plugins": {
+        "complete_strings": {
+            "maxLength": 15
+        },
+        "node": {},
+        "lint": {},
+        "doc_comment": {
+            "fullDocs": true,
+            "strong": true
+        }
+    }
+}
