@@ -1,10 +1,10 @@
 let deployNpm = require('./../../');
-deployNpm.automatic();
 //In user case, You can simply write it.
-//require('deploy-npm').automatic();
+//let deployNpm = require('deploy-npm');
 
 let startCallback = () =>{
   console.log('started!');
 }
 
 deployNpm.callback(startCallback);
+deployNpm.automatic();

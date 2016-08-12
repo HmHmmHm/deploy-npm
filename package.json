@@ -1,6 +1,6 @@
 {
   "name": "deploy-npm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "deploy-npm will be install npm module automatically in the run-time.",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/HmHmmHm/deploy-npm/issues"
   },
-  "homepage": "https://github.com/HmHmmHm/deploy-npm#readme",
-  "dependencies": {
-    "stack-trace": "0.0.9"
-  }
+  "homepage": "https://github.com/HmHmmHm/deploy-npm#readme"
 }

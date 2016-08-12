@@ -21,6 +21,12 @@ list using the npm install <package-name> --save command.)
 - and register the event listener, `require('deploy-npm').callback(startCallback);`
 - If you want to more information, Check out the example code.
 
+## How to make another optional module install in run-time?
+
+- deploy-npm support 2 automatic module check&install method.
+- `require('deploy-npm').isModuleExist('module-name');`
+- `require('deploy-npm').moduleInstall('module-name')`
+
 ![Showcase](http://i.imgur.com/1UcewPG.gif)
 
 ## Example
