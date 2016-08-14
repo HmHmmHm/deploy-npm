@@ -21,6 +21,11 @@ list using the npm install <package-name> --save command.)
 - and register the event listener, `require('deploy-npm').callback(startCallback);`
 - If you want to more information, Check out the example code.
 
+## How to built-in deploy-npm to my project?
+
+- copy or download `deploy-npm.js` file in your project folder
+- and just simply write it `require('./deploy-npm')` now can use it doesn't download this module.
+
 ## How to make another optional module install in run-time?
 
 - deploy-npm support 2 automatic module check&install method.

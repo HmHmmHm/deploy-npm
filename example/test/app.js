@@ -1,4 +1,4 @@
-let deployNpm = require('./../../');
+let deployNpm = require('./../../deploy-npm.js');
 //In user case, You can simply write it.
 //let deployNpm = require('deploy-npm');
 

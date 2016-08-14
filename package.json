@@ -1,8 +1,8 @@
 {
   "name": "deploy-npm",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "deploy-npm will be install npm module automatically in the run-time.",
-  "main": "index.js",
+  "main": "deploy-npm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
